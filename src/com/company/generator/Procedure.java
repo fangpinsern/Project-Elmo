@@ -12,7 +12,7 @@ public class Procedure {
 
     public void generate() {
         this.statementList = new StmtList();
-        this.statementList.generate();
+        this.statementList.generate(true);
         return;
     }
 
