@@ -24,11 +24,11 @@ public class RelFactorGen {
                 break;
             case 1:
                 ConstGen constGen = new ConstGen();
-                newVariable = new RelFactor(constGen.getRandomVariables());
+                newVariable = new RelFactor(constGen.getRandom());
                 break;
             default:
                 VarGen varGen = new VarGen();
-                newVariable = new RelFactor(varGen.getRandomVariables());
+                newVariable = new RelFactor(varGen.getRandom());
                 break;
         }
         this.existingExpr.add(newVariable);

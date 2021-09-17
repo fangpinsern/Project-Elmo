@@ -11,15 +11,15 @@ public class VarGen {
 
     public VarGen () {}
 
-    public VarName generateVariable() {
+    public VarName generate() {
         VarName newVariable = new VarName();
         this.existingVar.add(newVariable);
         return newVariable;
     }
 
-    public VarName getRandomVariables() {
+    public VarName getRandom() {
         if (this.existingVar.size() <= 0) {
-            return generateVariable();
+            return generate();
         }
         int upperLimit = this.existingVar.size();
         Random r = new Random();

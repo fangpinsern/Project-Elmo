@@ -27,7 +27,7 @@ public class StmtList {
         Statement newStmt = new ReadStatement("variable");
         newStmt.generateStatement();
         this.statementList.add(newStmt);
-        Statement newStmt2 = new AssignStatement(variableList.generateVariable(), test);
+        Statement newStmt2 = new AssignStatement(variableList.generate(), test);
         newStmt2.generateStatement();
         this.statementList.add(newStmt2);
 

@@ -10,15 +10,15 @@ public class ConstGen {
 
     public ConstGen () {}
 
-    public ConstVal generateVariable() {
+    public ConstVal generate() {
         ConstVal newConst = new ConstVal();
         this.existingConst.add(newConst);
         return newConst;
     }
 
-    public ConstVal getRandomVariables() {
+    public ConstVal getRandom() {
         if (this.existingConst.size() <= 0) {
-            return generateVariable();
+            return generate();
         }
         int upperLimit = this.existingConst.size();
         Random r = new Random();

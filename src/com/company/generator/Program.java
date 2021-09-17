@@ -12,7 +12,7 @@ public class Program {
 
     public void generateProgram() {
         ProcGen proc = new ProcGen();
-        Procedure newProc = new Procedure(proc.generateProcName());
+        Procedure newProc = new Procedure(proc.generate());
         newProc.generate();
         this.proceduresList.add(newProc);
         System.out.println(proceduresList.get(0).toString());

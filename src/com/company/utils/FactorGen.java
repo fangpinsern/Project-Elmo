@@ -10,14 +10,14 @@ import java.util.Random;
 public class FactorGen {
     public static ArrayList<Factor> existingFactor = new ArrayList<>();
 
-    public Factor generateFactor() {
+    public Factor generate() {
         Random r = new Random();
         int randomIndex = r.nextInt(3);
         Factor newVariable;
         switch (randomIndex){
             case 0:
                 ConstGen constGen= new ConstGen();
-                newVariable = new Factor(constGen.generateVariable());
+                newVariable = new Factor(constGen.generate());
                 break;
             case 1:
                 ExprGen exprGen= new ExprGen();
@@ -25,16 +25,16 @@ public class FactorGen {
                 break;
             default:
                 VarGen varGen= new VarGen();
-                newVariable = new Factor(varGen.generateVariable());
+                newVariable = new Factor(varGen.generate());
                 break;
         }
         this.existingFactor.add(newVariable);
         return newVariable;
     }
 
-    public Factor getRandomExistingFactor() {
+    public Factor getRandom() {
         if (this.existingFactor.size() <= 0) {
-            generateFactor();
+            generate();
         }
         int upperLimit = this.existingFactor.size();
         Random r = new Random();

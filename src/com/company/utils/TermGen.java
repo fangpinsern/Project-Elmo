@@ -26,11 +26,11 @@ public class TermGen {
             case 0:
                 TermGen termGen = new TermGen();
                 FactorGen factorGen = new FactorGen();
-                newVariable = new TermVal(termGen.generate(), termOp, factorGen.generateFactor());
+                newVariable = new TermVal(termGen.generate(), termOp, factorGen.generate());
                 break;
             default:
                 FactorGen factorGen2 = new FactorGen();
-                newVariable = new TermVal(factorGen2.generateFactor());
+                newVariable = new TermVal(factorGen2.generate());
                 break;
         }
         this.existingTerms.add(newVariable);

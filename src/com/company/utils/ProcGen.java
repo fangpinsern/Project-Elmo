@@ -11,7 +11,7 @@ public class ProcGen {
 
     public ProcGen () {}
 
-    public ProcName generateProcName() {
+    public ProcName generate() {
         ProcName newVariable = new ProcName();
         this.existingProc.add(newVariable);
         return newVariable;
@@ -19,7 +19,7 @@ public class ProcGen {
 
     public ProcName getRandomProc() {
         if (this.existingProc.size() <= 0) {
-            return generateProcName();
+            return generate();
         }
         int upperLimit = this.existingProc.size();
         Random r = new Random();
