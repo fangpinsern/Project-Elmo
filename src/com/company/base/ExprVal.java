@@ -10,11 +10,6 @@ public class ExprVal {
     private String rightVal;
     private String op;
 
-    private ArrayList<String> validOps = new ArrayList<>(Arrays.asList(
-            "+",
-            "-"
-    ));
-
     public ExprVal(ExprVal left, String op, TermVal right) {
         this.leftVal = left.toString();
         this.rightVal = right.toString();
@@ -28,8 +23,12 @@ public class ExprVal {
         this.leftVal = left.toString();
     }
 
-    public ArrayList<String> getValidOps() {
-        return this.validOps;
+    public static ArrayList<String> getValidOps() {
+        ArrayList<String> validOps = new ArrayList<>(Arrays.asList(
+                "+",
+                "-"
+        ));
+        return validOps;
     }
 
     @Override

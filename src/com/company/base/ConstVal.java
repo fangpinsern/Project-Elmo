@@ -11,7 +11,7 @@ public class ConstVal {
 
     public ConstVal() {
         Random r = new Random();
-        this.val = r.nextInt();
+        this.val = r.nextInt(1000000);
     }
 
     @Override

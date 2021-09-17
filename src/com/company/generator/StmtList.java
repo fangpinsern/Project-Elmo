@@ -1,8 +1,11 @@
 package com.company.generator;
 
+import com.company.base.CondExpr;
 import com.company.base.ExprVal;
 import com.company.base.Factor;
 import com.company.base.TermVal;
+import com.company.utils.CondExprGen;
+import com.company.utils.ExprGen;
 import com.company.utils.VarGen;
 
 import java.util.ArrayList;
@@ -13,9 +16,11 @@ public class StmtList {
 
     public StmtList generate(boolean isNesting) {
         VarGen variableList = new VarGen();
-        ExprVal test = new ExprVal(new TermVal(new Factor(variableList.generateVariable())));
+        ExprGen exprGen = new ExprGen();
+        CondExprGen condExprGen = new CondExprGen();
+        ExprVal test = exprGen.generate();
         if (isNesting) {
-            Statement newStmt3 = new IfStatement("x < b");
+            Statement newStmt3 = new IfStatement(condExprGen.getRandom());
             newStmt3.generateStatement();
             this.statementList.add(newStmt3);
         }

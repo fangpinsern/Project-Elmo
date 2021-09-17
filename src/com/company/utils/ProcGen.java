@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ProcGen {
-    public ArrayList<ProcName> existingProc = new ArrayList<>();
+    public static ArrayList<ProcName> existingProc = new ArrayList<>();
 
     public ProcGen () {}
 

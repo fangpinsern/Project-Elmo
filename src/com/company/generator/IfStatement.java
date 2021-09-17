@@ -1,12 +1,14 @@
 package com.company.generator;
 
+import com.company.base.CondExpr;
+
 public class IfStatement implements Statement {
     private String condExpr;
     private StmtList ifStmt;
     private StmtList elseStmt;
 
-    public IfStatement(String condExpr) {
-        this.condExpr = condExpr;
+    public IfStatement(CondExpr condExpr) {
+        this.condExpr = condExpr.toString();
         this.ifStmt = new StmtList().generate(false);
         this.elseStmt = new StmtList().generate(false);
     }

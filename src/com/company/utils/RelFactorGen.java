@@ -1,41 +1,41 @@
 package com.company.utils;
 
 import com.company.base.ExprVal;
-import com.company.base.TermVal;
+import com.company.base.RelFactor;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ExprGen {
-//    expr ‘+’ term | expr ‘-’ term | term
-    public static ArrayList<ExprVal> existingExpr = new ArrayList<>();
+public class RelFactorGen {
+    //   rel_factor: var_name | const_value | expr
+    public static ArrayList<RelFactor> existingExpr = new ArrayList<>();
 
-    public ExprGen () {}
+    public RelFactorGen () {}
 
-    public ExprVal generate() {
-        ArrayList<String> exprOps = ExprVal.getValidOps();
+    public RelFactor generate() {
         Random r = new Random();
-        int opIndex = r.nextInt(exprOps.size());
-        String termOp = exprOps.get(opIndex);
 
         int randomIndex = r.nextInt(3);
-        ExprVal newVariable;
+        RelFactor newVariable;
         switch (randomIndex){
             case 0:
-                TermGen termGen = new TermGen();
                 ExprGen exprGen = new ExprGen();
-                newVariable = new ExprVal(exprGen.getRandom(), termOp, termGen.generate());
+                newVariable = new RelFactor(exprGen.getRandom());
+                break;
+            case 1:
+                ConstGen constGen = new ConstGen();
+                newVariable = new RelFactor(constGen.getRandomVariables());
                 break;
             default:
-                TermGen termGen2 = new TermGen();
-                newVariable = new ExprVal(termGen2.generate());
+                VarGen varGen = new VarGen();
+                newVariable = new RelFactor(varGen.getRandomVariables());
                 break;
         }
         this.existingExpr.add(newVariable);
         return newVariable;
     }
 
-    public ExprVal getRandom() {
+    public RelFactor getRandom() {
         if (this.existingExpr.size() <= 0) {
             return generate();
         }

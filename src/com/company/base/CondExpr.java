@@ -1,5 +1,8 @@
 package com.company.base;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class CondExpr {
     //    rel_expr | ‘!’ ‘(’ cond_expr ‘)’ | ‘(’ cond_expr ‘)’ ‘&&’ ‘(’ cond_expr ‘)’ |
 //    ‘(’ cond_expr ‘)’ ‘||’ ‘(’ cond_expr ‘)’
@@ -15,6 +18,14 @@ public class CondExpr {
 
     public CondExpr(CondExpr left, String Op, CondExpr right) {
         this.val = "( " + left.toString() + " ) " + Op + " ( " + right + " )";
+    }
+
+    public static ArrayList<String> getValidOps() {
+        ArrayList<String> validOps = new ArrayList<>(Arrays.asList(
+                "&&",
+                "||"
+        ));
+        return validOps;
     }
 
     @Override

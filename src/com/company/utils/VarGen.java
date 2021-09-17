@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class VarGen {
 
-    public ArrayList<VarName> existingVar = new ArrayList<>();
+    public static ArrayList<VarName> existingVar = new ArrayList<>();
 
     public VarGen () {}
 

@@ -9,12 +9,6 @@ public class TermVal {
     private String rightVal;
     private String termOp;
 
-    private ArrayList<String> validOps = new ArrayList<>(Arrays.asList(
-            "*",
-            "/",
-            "%"
-    ));
-
     public TermVal(TermVal left, String termOp, Factor right) {
         this.leftVal = left.toString();
         this.rightVal = right.toString();
@@ -25,8 +19,13 @@ public class TermVal {
         this.leftVal = left.toString();
     }
 
-    public ArrayList<String> getValidOps() {
-        return this.validOps;
+    public static ArrayList<String> getValidOps() {
+        ArrayList<String> validOps = new ArrayList<>(Arrays.asList(
+                "*",
+                "/",
+                "%"
+        ));
+        return validOps;
     }
 
     @Override

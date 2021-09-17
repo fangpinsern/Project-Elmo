@@ -10,23 +10,22 @@ public class RelExpr {
     private String right;
     private String op;
 
-    private ArrayList<String> validOps = new ArrayList<>(Arrays.asList(
-            ">",
-            ">=",
-            "<",
-            "<=",
-            "==",
-            "!="
-    ));
-
     public RelExpr(RelFactor left, String op, RelFactor right) {
         this.left = left.toString();
         this.right = right.toString();
         this.op = op;
     }
 
-    public ArrayList<String> getValidOps() {
-        return this.validOps;
+    public static ArrayList<String> getValidOps() {
+        ArrayList<String> validOps = new ArrayList<>(Arrays.asList(
+                ">",
+                ">=",
+                "<",
+                "<=",
+                "==",
+                "!="
+        ));
+        return validOps;
     }
 
     @Override
