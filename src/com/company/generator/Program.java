@@ -1,5 +1,8 @@
 package com.company.generator;
 
+import com.company.base.ProcName;
+import com.company.utils.ProcGen;
+
 import java.util.ArrayList;
 
 public class Program {
@@ -8,7 +11,8 @@ public class Program {
     ArrayList<Procedure> proceduresList = new ArrayList<Procedure>();
 
     public void generateProgram() {
-        Procedure newProc = new Procedure("HELP");
+        ProcGen proc = new ProcGen();
+        Procedure newProc = new Procedure(proc.generateProcName());
         newProc.generate();
         this.proceduresList.add(newProc);
         System.out.println(proceduresList.get(0).toString());

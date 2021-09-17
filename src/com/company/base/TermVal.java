@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TermVal {
-//    term ‘*’ factor | term ‘/’ factor | term ‘%’ factor | factor
+    //    term ‘*’ factor | term ‘/’ factor | term ‘%’ factor | factor
     private String leftVal;
     private String rightVal;
     private String termOp;
@@ -15,7 +15,7 @@ public class TermVal {
             "%"
     ));
 
-    public TermVal(TermVal left, String termOp, Factor right){
+    public TermVal(TermVal left, String termOp, Factor right) {
         this.leftVal = left.toString();
         this.rightVal = right.toString();
         this.termOp = termOp;
@@ -25,7 +25,7 @@ public class TermVal {
         this.leftVal = left.toString();
     }
 
-    public ArrayList<String> getValidOps(){
+    public ArrayList<String> getValidOps() {
         return this.validOps;
     }
 

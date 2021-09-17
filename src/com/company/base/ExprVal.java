@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class ExprVal {
 
-//    expr ‘+’ term | expr ‘-’ term | term
+    //    expr ‘+’ term | expr ‘-’ term | term
     private String leftVal;
     private String rightVal;
     private String op;
@@ -15,7 +15,7 @@ public class ExprVal {
             "-"
     ));
 
-    public ExprVal (ExprVal left, String op, TermVal right){
+    public ExprVal(ExprVal left, String op, TermVal right) {
         this.leftVal = left.toString();
         this.rightVal = right.toString();
         this.op = op;
@@ -24,12 +24,19 @@ public class ExprVal {
         }
     }
 
-    public ArrayList<String> getValidOps(){
+    public ExprVal(TermVal left) {
+        this.leftVal = left.toString();
+    }
+
+    public ArrayList<String> getValidOps() {
         return this.validOps;
     }
 
     @Override
     public String toString() {
+        if (op == null) {
+            return this.leftVal;
+        }
         return this.leftVal + this.op + this.rightVal;
     }
 }

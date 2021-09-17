@@ -25,7 +25,7 @@ public class RelExpr {
         this.op = op;
     }
 
-    public ArrayList<String> getValidOps(){
+    public ArrayList<String> getValidOps() {
         return this.validOps;
     }
 

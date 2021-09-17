@@ -3,6 +3,7 @@ package com.company.base;
 public class VarName {
     private String name;
 
+
     public VarName(String name) {
         this.name = name;
     }
@@ -12,7 +13,7 @@ public class VarName {
     }
 
     private String randomGeneratedName() {
-        return "johndoe";
+        return Name.randomGeneratedName(10);
     }
 
     @Override

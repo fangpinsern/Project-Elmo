@@ -1,8 +1,9 @@
 package com.company.base;
 
 public class RelFactor {
-//    var_name | const_value | expr
+    //    var_name | const_value | expr
     private String val;
+
     public RelFactor(VarName name) {
         this.val = name.toString();
     }

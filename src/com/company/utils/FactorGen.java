@@ -1,6 +1,4 @@
 package com.company.utils;
 
-public class ExprGen {
-
-
+public class FactorGen {
 }

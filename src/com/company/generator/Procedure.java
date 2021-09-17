@@ -1,13 +1,15 @@
 package com.company.generator;
 
+import com.company.base.ProcName;
+
 import java.util.ArrayList;
 
 public class Procedure {
     public String procedureName;
     public StmtList statementList;
 
-    public Procedure(String procedureName) {
-        this.procedureName = procedureName;
+    public Procedure(ProcName procedureName) {
+        this.procedureName = procedureName.toString();
     }
 
     public void generate() {
