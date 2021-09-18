@@ -1,6 +1,7 @@
 package com.company.generator;
 
 import com.company.base.VarName;
+import com.company.utils.VarGen;
 
 public class ReadStatement implements Statement{
     private String varName;
@@ -9,7 +10,11 @@ public class ReadStatement implements Statement{
         this.varName = variableName.toString();
     }
 
+    public ReadStatement(){}
+
     public void generateStatement() {
+        VarGen varGen = new VarGen();
+        this.varName = varGen.getRandom().toString();
         return;
     }
 
