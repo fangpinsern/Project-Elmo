@@ -17,7 +17,7 @@ public class FactorGen {
         switch (randomIndex){
             case 0:
                 ConstGen constGen= new ConstGen();
-                newVariable = new Factor(constGen.generate());
+                newVariable = new Factor(constGen.getRandom());
                 break;
             case 1:
                 ExprGen exprGen= new ExprGen();
@@ -25,14 +25,14 @@ public class FactorGen {
                 break;
             default:
                 VarGen varGen= new VarGen();
-                newVariable = new Factor(varGen.generate());
+                newVariable = new Factor(varGen.getRandom());
                 break;
         }
         this.existingFactor.add(newVariable);
         return newVariable;
     }
 
-    public Factor getRandom() {
+    public Factor getRandomExisting() {
         if (this.existingFactor.size() <= 0) {
             generate();
         }
@@ -41,5 +41,25 @@ public class FactorGen {
         int randomIndex = r.nextInt(upperLimit);
 
         return this.existingFactor.get(randomIndex);
+    }
+
+    public Factor getRandom() {
+
+        if (this.existingFactor.size() <= 0) {
+            return generate();
+        }
+        // choice of getting random new variable or existing variable
+        // random form 0-2, favouring existing variable
+        Random r = new Random();
+        int existingOrNew = r.nextInt(3);
+        switch (existingOrNew) {
+            case 0:
+                return generate();
+            default:
+                int upperLimit = this.existingFactor.size();
+                int randomIndex = r.nextInt(upperLimit);
+
+                return this.existingFactor.get(randomIndex);
+        }
     }
 }

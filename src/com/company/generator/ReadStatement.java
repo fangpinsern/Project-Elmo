@@ -1,10 +1,12 @@
 package com.company.generator;
 
+import com.company.base.VarName;
+
 public class ReadStatement implements Statement{
     private String varName;
 
-    public ReadStatement(String variableName) {
-        this.varName = variableName;
+    public ReadStatement(VarName variableName) {
+        this.varName = variableName.toString();
     }
 
     public void generateStatement() {

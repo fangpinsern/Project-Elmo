@@ -37,7 +37,7 @@ public class TermGen {
         return newVariable;
     }
 
-    public TermVal getRandom() {
+    public TermVal getRandomExisting() {
         if (this.existingTerms.size() <= 0) {
             return generate();
         }
@@ -46,5 +46,24 @@ public class TermGen {
         int randomIndex = r.nextInt(upperLimit);
 
         return this.existingTerms.get(randomIndex);
+    }
+
+    public TermVal getRandom() {
+        if (this.existingTerms.size() <= 0) {
+            return generate();
+        }
+        // choice of getting random new variable or existing variable
+        // random form 0-2, favouring existing variable
+        Random r = new Random();
+        int existingOrNew = r.nextInt(3);
+        switch (existingOrNew) {
+            case 0:
+                return generate();
+            default:
+                int upperLimit = this.existingTerms.size();
+                int randomIndex = r.nextInt(upperLimit);
+
+                return this.existingTerms.get(randomIndex);
+        }
     }
 }

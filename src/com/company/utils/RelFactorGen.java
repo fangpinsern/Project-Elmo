@@ -2,6 +2,7 @@ package com.company.utils;
 
 import com.company.base.ExprVal;
 import com.company.base.RelFactor;
+import com.company.base.TermVal;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -35,7 +36,7 @@ public class RelFactorGen {
         return newVariable;
     }
 
-    public RelFactor getRandom() {
+    public RelFactor getRandomExisting() {
         if (this.existingExpr.size() <= 0) {
             return generate();
         }
@@ -44,5 +45,24 @@ public class RelFactorGen {
         int randomIndex = r.nextInt(upperLimit);
 
         return this.existingExpr.get(randomIndex);
+    }
+
+    public RelFactor getRandom() {
+        if (this.existingExpr.size() <= 0) {
+            return generate();
+        }
+        // choice of getting random new variable or existing variable
+        // random form 0-2, favouring existing variable
+        Random r = new Random();
+        int existingOrNew = r.nextInt(3);
+        switch (existingOrNew) {
+            case 0:
+                return generate();
+            default:
+                int upperLimit = this.existingExpr.size();
+                int randomIndex = r.nextInt(upperLimit);
+
+                return this.existingExpr.get(randomIndex);
+        }
     }
 }

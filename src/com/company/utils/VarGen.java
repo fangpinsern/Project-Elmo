@@ -17,7 +17,7 @@ public class VarGen {
         return newVariable;
     }
 
-    public VarName getRandom() {
+    public VarName getRandomExisting() {
         if (this.existingVar.size() <= 0) {
             return generate();
         }
@@ -26,5 +26,24 @@ public class VarGen {
         int randomIndex = r.nextInt(upperLimit);
 
         return this.existingVar.get(randomIndex);
+    }
+
+    public VarName getRandom() {
+        if (this.existingVar.size() <= 0) {
+            return generate();
+        }
+        // choice of getting random new variable or existing variable
+        // random form 0-2, favouring existing variable
+        Random r = new Random();
+        int existingOrNew = r.nextInt(3);
+        switch (existingOrNew) {
+            case 0:
+                return generate();
+            default:
+                int upperLimit = this.existingVar.size();
+                int randomIndex = r.nextInt(upperLimit);
+
+                return this.existingVar.get(randomIndex);
+        }
     }
 }

@@ -1,9 +1,6 @@
 package com.company.utils;
 
-import com.company.base.CondExpr;
-import com.company.base.RelExpr;
-import com.company.base.RelFactor;
-import com.company.base.TermVal;
+import com.company.base.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -35,14 +32,14 @@ public class CondExprGen {
                 break;
             default:
                 CondExprGen condExprGen1 = new CondExprGen();
-                newVariable = new CondExpr(condExprGen1.getRandom(), condExprOp, condExprGen1.getRandom());
+                newVariable = new CondExpr(condExprGen1.getRandomExisting(), condExprOp, condExprGen1.getRandomExisting());
                 break;
         }
         this.existingCondExpr.add(newVariable);
         return newVariable;
     }
 
-    public CondExpr getRandom() {
+    public CondExpr getRandomExisting() {
         if (this.existingCondExpr.size() <= 0) {
             return generate();
         }
@@ -51,5 +48,25 @@ public class CondExprGen {
         int randomIndex = r.nextInt(upperLimit);
 
         return this.existingCondExpr.get(randomIndex);
+    }
+
+    public CondExpr getRandom() {
+
+        if (this.existingCondExpr.size() <= 0) {
+            return generate();
+        }
+        // choice of getting random new variable or existing variable
+        // random form 0-2, favouring existing variable
+        Random r = new Random();
+        int existingOrNew = r.nextInt(3);
+        switch (existingOrNew) {
+            case 0:
+                return generate();
+            default:
+                int upperLimit = this.existingCondExpr.size();
+                int randomIndex = r.nextInt(upperLimit);
+
+                return this.existingCondExpr.get(randomIndex);
+        }
     }
 }

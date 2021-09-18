@@ -1,6 +1,7 @@
 package com.company.utils;
 
 import com.company.base.ConstVal;
+import com.company.base.ExprVal;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,7 +17,7 @@ public class ConstGen {
         return newConst;
     }
 
-    public ConstVal getRandom() {
+    public ConstVal getRandomExisting() {
         if (this.existingConst.size() <= 0) {
             return generate();
         }
@@ -25,5 +26,25 @@ public class ConstGen {
         int randomIndex = r.nextInt(upperLimit);
 
         return this.existingConst.get(randomIndex);
+    }
+
+    public ConstVal getRandom() {
+
+        if (this.existingConst.size() <= 0) {
+            return generate();
+        }
+        // choice of getting random new variable or existing variable
+        // random form 0-2, favouring existing variable
+        Random r = new Random();
+        int existingOrNew = r.nextInt(3);
+        switch (existingOrNew) {
+            case 0:
+                return generate();
+            default:
+                int upperLimit = this.existingConst.size();
+                int randomIndex = r.nextInt(upperLimit);
+
+                return this.existingConst.get(randomIndex);
+        }
     }
 }

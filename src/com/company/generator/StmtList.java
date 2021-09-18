@@ -15,21 +15,27 @@ public class StmtList {
     private ArrayList<Statement> statementList = new ArrayList<Statement>();
 
     public StmtList generate(boolean isNesting) {
-        VarGen variableList = new VarGen();
+        VarGen varGen = new VarGen();
         ExprGen exprGen = new ExprGen();
         CondExprGen condExprGen = new CondExprGen();
-        ExprVal test = exprGen.generate();
+
         if (isNesting) {
             Statement newStmt3 = new IfStatement(condExprGen.getRandom());
             newStmt3.generateStatement();
             this.statementList.add(newStmt3);
+            Statement newStmt4 = new WhileStatement(condExprGen.getRandom());
+            newStmt4.generateStatement();
+            this.statementList.add(newStmt4);
+            Statement newStmt = new ReadStatement(varGen.getRandomExisting());
+            newStmt.generateStatement();
+            this.statementList.add(newStmt);
         }
-        Statement newStmt = new ReadStatement("variable");
-        newStmt.generateStatement();
-        this.statementList.add(newStmt);
-        Statement newStmt2 = new AssignStatement(variableList.generate(), test);
+        Statement newStmt2 = new AssignStatement(varGen.getRandom(), exprGen.getRandom());
         newStmt2.generateStatement();
         this.statementList.add(newStmt2);
+        Statement newStmt5 = new PrintStatement(varGen.getRandomExisting());
+        newStmt5.generateStatement();
+        this.statementList.add(newStmt5);
 
         return this;
     }

@@ -1,6 +1,7 @@
 package com.company.utils;
 
 import com.company.base.ProcName;
+import com.company.base.RelExpr;
 import com.company.base.VarName;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class ProcGen {
         return newVariable;
     }
 
-    public ProcName getRandomProc() {
+    public ProcName getRandomExisting() {
         if (this.existingProc.size() <= 0) {
             return generate();
         }
@@ -26,5 +27,25 @@ public class ProcGen {
         int randomIndex = r.nextInt(upperLimit);
 
         return this.existingProc.get(randomIndex);
+    }
+
+    public ProcName getRandom() {
+
+        if (this.existingProc.size() <= 0) {
+            return generate();
+        }
+        // choice of getting random new variable or existing variable
+        // random form 0-2, favouring existing variable
+        Random r = new Random();
+        int existingOrNew = r.nextInt(3);
+        switch (existingOrNew) {
+            case 0:
+                return generate();
+            default:
+                int upperLimit = this.existingProc.size();
+                int randomIndex = r.nextInt(upperLimit);
+
+                return this.existingProc.get(randomIndex);
+        }
     }
 }

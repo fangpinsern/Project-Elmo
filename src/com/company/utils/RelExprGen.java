@@ -1,6 +1,7 @@
 package com.company.utils;
 
 import com.company.base.RelExpr;
+import com.company.base.RelFactor;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -24,7 +25,7 @@ public class RelExprGen {
         return newVariable;
     }
 
-    public RelExpr getRandom() {
+    public RelExpr getRandomExisting() {
         if (this.existingRelExpr.size() <= 0) {
             return generate();
         }
@@ -33,5 +34,24 @@ public class RelExprGen {
         int randomIndex = r.nextInt(upperLimit);
 
         return this.existingRelExpr.get(randomIndex);
+    }
+
+    public RelExpr getRandom() {
+        if (this.existingRelExpr.size() <= 0) {
+            return generate();
+        }
+        // choice of getting random new variable or existing variable
+        // random form 0-2, favouring existing variable
+        Random r = new Random();
+        int existingOrNew = r.nextInt(3);
+        switch (existingOrNew) {
+            case 0:
+                return generate();
+            default:
+                int upperLimit = this.existingRelExpr.size();
+                int randomIndex = r.nextInt(upperLimit);
+
+                return this.existingRelExpr.get(randomIndex);
+        }
     }
 }
