@@ -90,3 +90,46 @@ Though the diagram may look a little complicated, we can see some general patter
 ### Architecture
 For each box you see in the image above, they will have their own classes. Every class will 
 have a "blueprint" of what should be done when creating the object (Classic OOP).
+
+Every object "below" the statement level is a "base" class in the base module. 
+
+Base classes:
+1. Condition Expression - cond_expr
+2. Constant Value - const_value
+3. Expression Value - expr_val
+4. Factor - factor
+5. Name - NAME
+6. Procedure name - proc_name
+7. Relationship Expression - rel_expr
+8. Relationship Factor - rel_factor
+9. Term - term
+10. Variable Name - var_name
+
+Each of the base classes will have its own generator. This would help generate an instance 
+of the given base objects or get an existing one. 
+
+To keep track of what a generator has generated, we use a static Arraylist in each generator.
+This will help us get existing values if needed. All generators are in the utils module. 
+
+Since we are trying to create a random generated program, we have to bring out some random values
+for the system to work with. Hence, every generator has some form of random built in. For more details
+about how the random system works, please refer to the below sections.
+
+Each generator implements 2 methods:
+1. getRandom
+2. getRandomExisting
+
+NOTE: Here we use the word "implements" loosely. These methods return different types for each generator. 
+Hence, we do not group them under the same Java interface. However, for convenience and ease of use, we 
+have they all named the same.
+
+For `getRandom`, we have a random chance of generating a new variable, or getting an existing variable.  
+For `getRandomExisting`, we get a random object from the existing objects in the generator. 
+
+For now, if the items in the generator are empty, we would help generate a new object. 
+
+EDIT: This needs to be changed as we this will fail the "EXISTING" requirement of this function.
+
+
+
+
