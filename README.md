@@ -91,6 +91,7 @@ Though the diagram may look a little complicated, we can see some general patter
 For each box you see in the image above, they will have their own classes. Every class will 
 have a "blueprint" of what should be done when creating the object (Classic OOP).
 
+### Base Classes
 Every object "below" the statement level is a "base" class in the base module. 
 
 Base classes:
@@ -129,6 +130,40 @@ For `getRandomExisting`, we get a random object from the existing objects in the
 For now, if the items in the generator are empty, we would help generate a new object. 
 
 EDIT: This needs to be changed as we this will fail the "EXISTING" requirement of this function.
+
+### Higher Classes
+Classes above the statement classes generally uses the base classes to build. There are special outliers
+for this, but this is generally the case.
+
+OUTLIER: If and while statements will require statement list generation. Call statement will need to
+generate new procedures as well.
+
+Higher classes:
+1. Assign Statement - assign
+2. If statement - if
+3. Print Statement - print
+4. Procedure - procedure
+5. Program - program
+6. Read Statement - read
+7. Statement List - stmtLst
+8. While Statement - while
+9. Uses Statement - uses (WIP)
+
+All statements (Assign, If, Print, Read, While, Uses) implements the `Statement` interface which has
+a `generateStatements`. This will help with the generation of statements for out `StmtList` object.
+
+For `StmtList` object, we have a `generate` method allowing `Procedure` to generate statement lists
+(as well as for if and else.)
+
+`Program` will then call the `generate` method in procedure to generate a procedure for the program. 
+
+Below is an image for easier understanding for the flow of how the SIMPLE program will be generated.
+
+![Simple grammar diagram](./img/ProgramGenerationSequenceDiagam.png)
+
+Disclaimer: Above diagram is a over simplified sequence diagram. Actual program execution will have 
+more executions.
+
 
 
 
