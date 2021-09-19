@@ -87,7 +87,7 @@ Though the diagram may look a little complicated, we can see some general patter
 1. At the base of everything is a NAME or an INTEGER.
 2. There are some pre-defined routes for everything.
 
-### Architecture
+## Architecture
 For each box you see in the image above, they will have their own classes. Every class will 
 have a "blueprint" of what should be done when creating the object (Classic OOP).
 
@@ -164,7 +164,13 @@ Below is an image for easier understanding for the flow of how the SIMPLE progra
 Disclaimer: Above diagram is a over simplified sequence diagram. Actual program execution will have 
 more executions.
 
+## Set-up instructions
+### IntelliJ
+Using IntelliJ, clone this repository and just press play on the top right.
+The code will appear in the output - (working on outputting to file)
 
+### Running java normally
+(Work in progress)
 
 
 
