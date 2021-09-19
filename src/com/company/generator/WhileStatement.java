@@ -1,7 +1,6 @@
 package com.company.generator;
 
-import com.company.base.CondExpr;
-import com.company.utils.CondExprGen;
+import com.company.baseGenerator.CondExprGen;
 
 public class WhileStatement implements Statement {
 //    while: ‘while’ ‘(’ cond_expr ‘)’ ‘{‘ stmtLst ‘}’
@@ -27,6 +26,6 @@ public class WhileStatement implements Statement {
 
     @Override
     public String toString() {
-        return "while" + " ( " +  this.condExpr + " ) " +  "{\n" + this.whileStmt + "}";
+        return "while" + " ( " +  this.condExpr + " ) " +  "{" + this.whileStmt + "}";
     }
 }

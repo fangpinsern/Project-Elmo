@@ -1,8 +1,7 @@
 package com.company.generator;
 
-import com.company.base.CondExpr;
 import com.company.base.VarName;
-import com.company.utils.VarGen;
+import com.company.baseGenerator.VarGen;
 
 public class PrintStatement implements Statement{
 //    print: ‘print’ var_name’;’

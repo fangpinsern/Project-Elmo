@@ -14,12 +14,12 @@ public class Procedure {
 
     public void generate() {
         this.statementList = new StmtList();
-        this.statementList.generate(3);
+        this.statementList.generate(0);
         return;
     }
 
     @Override
     public String toString() {
-        return "procedure "+ this.procedureName + "{\n" + this.statementList.toString() + "}";
+        return "procedure "+ this.procedureName + "{" + this.statementList.toString() + "}";
     }
 }

@@ -1,7 +1,6 @@
 package com.company.generator;
 
-import com.company.base.CondExpr;
-import com.company.utils.CondExprGen;
+import com.company.baseGenerator.CondExprGen;
 
 public class IfStatement implements Statement {
     private String condExpr;
@@ -31,6 +30,6 @@ public class IfStatement implements Statement {
 
     @Override
     public String toString() {
-        return "if" + "(" +  this.condExpr + ")" +  "then" + " {\n" + this.ifStmt + "}" + "else" + "{\n" +  this.elseStmt + "}";
+        return "if" + "(" +  this.condExpr + ")" +  "then" + " {" + this.ifStmt + "}" + "else" + "{" +  this.elseStmt + "}";
     }
 }

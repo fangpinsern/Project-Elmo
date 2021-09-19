@@ -1,12 +1,8 @@
 package com.company.generator;
 
-import com.company.base.CondExpr;
-import com.company.base.ExprVal;
-import com.company.base.Factor;
-import com.company.base.TermVal;
-import com.company.utils.CondExprGen;
-import com.company.utils.ExprGen;
-import com.company.utils.VarGen;
+import com.company.baseGenerator.CondExprGen;
+import com.company.baseGenerator.ExprGen;
+import com.company.baseGenerator.VarGen;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -61,7 +57,8 @@ public class StmtList {
         // nested - read | print | call | while | if | assign
         // non nested - read | print | call | assign
         Random r = new Random();
-        int randomNoLines = r.nextInt(10);
+        int randomNoLines = 100;
+//                r.nextInt(10);
 
         VarGen varGen = new VarGen();
         ExprGen exprGen = new ExprGen();
@@ -111,7 +108,7 @@ public class StmtList {
     public String toString() {
         String stringReturnStatment = "";
         for(int i = 0; i < statementList.size(); i++){
-            stringReturnStatment = stringReturnStatment + statementList.get(i).toString() + "\n";
+            stringReturnStatment = stringReturnStatment + statementList.get(i).toString();
         }
         return stringReturnStatment;
 //        return "StmtList{" +

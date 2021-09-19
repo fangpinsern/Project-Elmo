@@ -1,7 +1,7 @@
 package com.company.generator;
 
 import com.company.base.VarName;
-import com.company.utils.VarGen;
+import com.company.baseGenerator.VarGen;
 
 public class ReadStatement implements Statement{
     private String varName;

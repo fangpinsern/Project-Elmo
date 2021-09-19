@@ -1,7 +1,7 @@
 package com.company.generator;
 
-import com.company.base.ProcName;
-import com.company.utils.ProcGen;
+import com.company.baseGenerator.ProcGen;
+import com.company.utils.Formatter;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,8 @@ public class Program {
         Procedure newProc = new Procedure(proc.generate());
         newProc.generate();
         this.proceduresList.add(newProc);
-        System.out.println(proceduresList.get(0).toString());
+        String formattedOut = Formatter.formatSIMPLE(proceduresList.get(0).toString());
+        System.out.println(formattedOut);
     }
 
     @Override

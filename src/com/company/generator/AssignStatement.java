@@ -2,8 +2,8 @@ package com.company.generator;
 
 import com.company.base.ExprVal;
 import com.company.base.VarName;
-import com.company.utils.ExprGen;
-import com.company.utils.VarGen;
+import com.company.baseGenerator.ExprGen;
+import com.company.baseGenerator.VarGen;
 
 public class AssignStatement implements Statement {
 

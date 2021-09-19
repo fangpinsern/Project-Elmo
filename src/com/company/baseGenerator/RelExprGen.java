@@ -1,7 +1,6 @@
-package com.company.utils;
+package com.company.baseGenerator;
 
 import com.company.base.RelExpr;
-import com.company.base.RelFactor;
 
 import java.util.ArrayList;
 import java.util.Random;

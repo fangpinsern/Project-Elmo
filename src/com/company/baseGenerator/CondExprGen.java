@@ -1,4 +1,4 @@
-package com.company.utils;
+package com.company.baseGenerator;
 
 import com.company.base.*;
 

@@ -1,9 +1,6 @@
-package com.company.utils;
+package com.company.baseGenerator;
 
-import com.company.base.Factor;
-import com.company.base.ProcName;
 import com.company.base.TermVal;
-import com.company.base.VarName;
 
 import java.util.ArrayList;
 import java.util.Random;
