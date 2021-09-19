@@ -14,7 +14,7 @@ public class Procedure {
 
     public void generate() {
         this.statementList = new StmtList();
-        this.statementList.generate(0);
+        this.statementList.generate(2, 10, true);
         return;
     }
 

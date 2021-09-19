@@ -52,13 +52,20 @@ public class StmtList {
 //        return this;
 //    }
 
-    public StmtList generate(int nestedLevel) {
+    public StmtList generate(int nestedLevel, int seed, boolean randomiseLines) {
         this.nestedLevel = nestedLevel;
-        // nested - read | print | call | while | if | assign
-        // non nested - read | print | call | assign
+        int stmtSeed = seed;
+        boolean genRandomLines = randomiseLines;
+        if (stmtSeed <= -1) {
+            stmtSeed = 10;
+            genRandomLines = true;
+        }
+        int randomNoLines = seed;
         Random r = new Random();
-        int randomNoLines = 100;
-//                r.nextInt(10);
+
+        if (genRandomLines) {
+            randomNoLines = r.nextInt(stmtSeed);
+        }
 
         VarGen varGen = new VarGen();
         ExprGen exprGen = new ExprGen();

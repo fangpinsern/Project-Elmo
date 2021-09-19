@@ -20,7 +20,7 @@ public class WhileStatement implements Statement {
     public void generateStatement() {
         CondExprGen condExprGen = new CondExprGen();
         this.condExpr = condExprGen.getRandom().toString();
-        this.whileStmt = new StmtList().generate(this.nested);
+        this.whileStmt = new StmtList().generate(this.nested, -1,true);
         return;
     }
 

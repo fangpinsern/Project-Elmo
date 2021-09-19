@@ -23,8 +23,8 @@ public class IfStatement implements Statement {
     public void generateStatement() {
         CondExprGen condExprGen = new CondExprGen();
         this.condExpr = condExprGen.getRandom().toString();
-        this.ifStmt = new StmtList().generate(this.ifNested);
-        this.elseStmt = new StmtList().generate(this.elseNested);
+        this.ifStmt = new StmtList().generate(this.ifNested, -1, false);
+        this.elseStmt = new StmtList().generate(this.elseNested, -1, false);
         return;
     }
 
