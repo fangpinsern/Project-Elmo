@@ -6,6 +6,7 @@ import com.company.baseGenerator.VarGen;
 public class PrintStatement implements Statement{
 //    print: ‘print’ var_name’;’
     private String variableName;
+    private String name = "print";
 
     public PrintStatement(VarName variableName) {
         this.variableName = variableName.toString();
@@ -17,6 +18,10 @@ public class PrintStatement implements Statement{
         VarGen varGen = new VarGen();
         this.variableName = varGen.getRandom().toString();
         return;
+    }
+
+    public String infoString() {
+        return String.format("%s - %s", this.name, this.variableName);
     }
 
     @Override

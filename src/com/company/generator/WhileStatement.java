@@ -7,6 +7,7 @@ public class WhileStatement implements Statement {
     private String condExpr;
     private StmtList whileStmt;
     private int nested = 0;
+    private String name = "While";
 
 //    public WhileStatement(CondExpr condExpr) {
 //        this.condExpr = condExpr.toString();
@@ -22,6 +23,10 @@ public class WhileStatement implements Statement {
         this.condExpr = condExprGen.getRandom().toString();
         this.whileStmt = new StmtList().generate(this.nested, -1,true);
         return;
+    }
+
+    public String infoString() {
+        return String.format("%s - %s", this.name, this.condExpr);
     }
 
     @Override

@@ -23,6 +23,12 @@ public class Program {
         System.out.println(VarGen.existingVar);
         System.out.println(ConstGen.existingConst);
         System.out.println(ExprGen.existingExpr);
+
+        // testing out statmentslist printing
+        ArrayList<Statement> statementList = proceduresList.get(0).getStatmentList();
+        for (int i = 0; i < statementList.size(); i++){
+            System.out.println(statementList.get(i).infoString());
+        }
     }
 
     @Override

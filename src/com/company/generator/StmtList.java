@@ -111,6 +111,10 @@ public class StmtList {
         }
     }
 
+    public ArrayList<Statement> getStatementList(){
+        return this.statementList;
+    }
+
     @Override
     public String toString() {
         String stringReturnStatment = "";

@@ -9,6 +9,7 @@ public class AssignStatement implements Statement {
 
     private String leftSide;
     private String rightSide;
+    private String name = "Assign";
 
     public AssignStatement(VarName leftSide, ExprVal rightSide) {
         this.leftSide = leftSide.toString();
@@ -23,6 +24,11 @@ public class AssignStatement implements Statement {
         this.leftSide = varGen.getRandomExisting().toString();
         this.rightSide = exprGen.getRandom().toString();
         return;
+    }
+
+    @Override
+    public String infoString() {
+        return String.format("%s - %s = %s", this.name, this.leftSide, this.rightSide);
     }
 
     @Override

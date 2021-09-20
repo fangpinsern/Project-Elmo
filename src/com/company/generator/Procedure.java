@@ -18,6 +18,10 @@ public class Procedure {
         return;
     }
 
+    public ArrayList<Statement> getStatmentList() {
+        return this.statementList.getStatementList();
+    }
+
     @Override
     public String toString() {
         return "procedure "+ this.procedureName + "{" + this.statementList.toString() + "}";
