@@ -16,7 +16,7 @@ public class Program {
     public void generateProgram() {
         ProcGen proc = new ProcGen();
         Procedure newProc = new Procedure(proc.generate());
-        newProc.generate();
+        newProc.generate(2,100,false);
         this.proceduresList.add(newProc);
         String formattedOut = Formatter.formatSIMPLE(proceduresList.get(0).toString());
         System.out.println(formattedOut);

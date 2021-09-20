@@ -35,7 +35,7 @@ public class ConstGen {
         // choice of getting random new variable or existing variable
         // random form 0-2, favouring existing variable
         Random r = new Random();
-        int existingOrNew = r.nextInt(3);
+        int existingOrNew = r.nextInt(2);
         switch (existingOrNew) {
             case 0:
                 return generate();

@@ -1,20 +1,31 @@
 package com.company.generator;
 
 import com.company.base.ProcName;
+import com.company.utils.CLIInput;
 
 import java.util.ArrayList;
 
 public class Procedure {
     public String procedureName;
     public StmtList statementList;
+    private int nestingLevel = 1;
+    private int seedValue = 10;
 
     public Procedure(ProcName procedureName) {
         this.procedureName = procedureName.toString();
     }
 
-    public void generate() {
+    public void generate(int nestingLevel, int seedValue, boolean randomiseNoOfLines) {
         this.statementList = new StmtList();
-        this.statementList.generate(2, 10, true);
+        int usedNestingLevel = nestingLevel;
+        int usedSeedValue = seedValue;
+        if (nestingLevel <= -1) {
+            usedNestingLevel = this.nestingLevel;
+        }
+        if (seedValue < 0) {
+            usedSeedValue = this.seedValue;
+        }
+        this.statementList.generate(CLIInput.nestingLevel, CLIInput.seedValue, CLIInput.randomiseNoOfLines);
         return;
     }
 
